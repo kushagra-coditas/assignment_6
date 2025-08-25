@@ -48,7 +48,14 @@ class DialPad extends StatelessWidget {
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     keyboardType: TextInputType.number,
                     controller: numberController,
-
+                    maxLength: 10,
+                    buildCounter:
+                        (
+                          BuildContext context, {
+                          int? currentLength,
+                          int? maxLength,
+                          bool? isFocused,
+                        }) => null,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Mobile Number",

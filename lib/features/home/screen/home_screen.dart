@@ -27,12 +27,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           itemCount: foodList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 0.8,
+            childAspectRatio: 0.67,
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
           ),
-          itemBuilder: (context, index) =>
-              ItemCard(food: foodList[index], onTap: () {}),
+
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.only(top: index % 2 != 0 ? 30 : 0),
+              child: ItemCard(food: foodList[index], onTap: () {}),
+            );
+          },
         ),
       );
     }

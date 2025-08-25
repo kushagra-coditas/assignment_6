@@ -19,37 +19,30 @@ class ItemCard extends ConsumerWidget {
         border: Border.all(color: Color(0xffE9F3FB)),
         boxShadow: [BoxShadow(color: Colors.grey.shade100)],
       ),
-      child: Stack(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
-                  child: Center(
-                    child: Image(
-                      image: AssetImage(food.image),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
+              child: Center(
+                child: Image(image: AssetImage(food.image), fit: BoxFit.cover),
               ),
-              SizedBox(height: 8),
-              Text(
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                food.name,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              SizedBox(height: 4),
-              Text(
-                "Per Plate \$${food.price}",
-                style: TextStyle(fontSize: 13, color: Colors.grey[600]),
-              ),
-              SizedBox(height: 8),
-            ],
+            ),
           ),
+          SizedBox(height: 8),
+          Text(
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            food.name,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+          SizedBox(height: 4),
+          Text(
+            "Per Plate \$${food.price}",
+            style: TextStyle(fontSize: 13, color: Colors.grey[600]),
+          ),
+          SizedBox(height: 8),
         ],
       ),
     );
