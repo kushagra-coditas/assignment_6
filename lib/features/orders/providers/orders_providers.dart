@@ -4,11 +4,11 @@ class OrderState {
   final int riceQuantity;
   final int vegQuantity;
 
-  const OrderState({this.riceQuantity = 1, this.vegQuantity = 1});
+   OrderState({this.riceQuantity = 1, this.vegQuantity = 1});
 }
 
 class OrderNotifier extends StateNotifier<OrderState> {
-  OrderNotifier() : super(const OrderState());
+  OrderNotifier() : super(OrderState());
 
   void incrementRice() {
     state = OrderState(

@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: height / 2),
-            SvgPicture.asset('lib/assets/logo.svg'),
+            SvgPicture.asset('lib/assets/images/logo.svg'),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
               child: Text(
