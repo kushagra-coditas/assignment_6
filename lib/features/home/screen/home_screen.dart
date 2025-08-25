@@ -17,14 +17,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     Widget content = SizedBox();
     final state = ref.watch(foodProvider);
-    final foodList = ref.watch(foodProvider.notifier).food;
+    final notifier = ref.watch(foodProvider.notifier);
+    final food = notifier.food;
 
     if (state is LoadingFood) {
       content = Center(child: CircularProgressIndicator());
     } else if (state is LoadedFood) {
       content = Expanded(
         child: GridView.builder(
-          itemCount: foodList.length,
+          itemCount: food.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.67,
@@ -35,7 +36,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.only(top: index % 2 != 0 ? 30 : 0),
-              child: ItemCard(food: foodList[index], onTap: () {}),
+              child: ItemCard(
+                food: food[index],
+                onTap: () {},
+                isSelected: true,
+                index: index,
+              ),
             );
           },
         ),

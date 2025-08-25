@@ -4,6 +4,7 @@ import 'package:assignment_6/features/models/item_model.dart';
 
 class HomeNotifier extends StateNotifier<HomeStates> {
   List<FoodModel> food = [];
+  Set<int> selectedIndexes = {};
   List<FoodModel> cart = [];
   HomeNotifier() : super(LoadingFood()) {
     loadingFood();
@@ -17,28 +18,24 @@ class HomeNotifier extends StateNotifier<HomeStates> {
         price: 30.0,
         image: "lib/assets/images/tuna.png",
         category: "Seafood",
-        isSelected: false,
       ),
       FoodModel(
         name: "Rice & Bread",
         price: 24.0,
         image: "lib/assets/images/rice_and_bread.png",
         category: "Staple",
-        isSelected: false,
       ),
       FoodModel(
         name: "Eggs Celery",
         price: 12.0,
         image: "lib/assets/images/eggs_celery.png",
         category: "Healthy",
-        isSelected: false,
       ),
       FoodModel(
         name: "Herby Veg",
         price: 18.0,
         image: "lib/assets/images/herby_veg.png",
         category: "Veg",
-        isSelected: false,
       ),
 
       FoodModel(
@@ -46,26 +43,32 @@ class HomeNotifier extends StateNotifier<HomeStates> {
         price: 35.0,
         image: "lib/assets/images/kebabs.png",
         category: "Indian",
-        isSelected: false,
       ),
       FoodModel(
         name: "Penne Pasta",
         price: 28.0,
         image: "lib/assets/images/penne_pasta.png",
         category: "Indian",
-        isSelected: false,
       ),
     ];
 
     state = LoadedFood();
   }
 
-  void selectedItem(FoodModel food) {
-    cart.add(food);
+ void toggleItemSelection(int index) {
+    if (selectedIndexes.contains(index)) {
+      selectedIndexes.remove(index);
+      cart.remove(food[index]);
+    } else {
+      selectedIndexes.add(index);
+      cart.add(food[index]);
+    }
+
+    state = LoadedFood();
   }
 
-  void discardedItem(FoodModel food) {
-    cart.remove(food);
+  bool isSelected(int index) {
+    return selectedIndexes.contains(index);
   }
 }
 
