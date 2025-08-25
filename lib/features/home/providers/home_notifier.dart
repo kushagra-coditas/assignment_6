@@ -55,34 +55,6 @@ class HomeNotifier extends StateNotifier<HomeStates> {
         category: "Indian",
         isSelected: false,
       ),
-      FoodModel(
-        name: "Caesar Salad",
-        price: 15.0,
-        image: "lib/assets/images/tuna.png",
-        category: "Salad",
-        isSelected: false,
-      ),
-      FoodModel(
-        name: "Pepperoni Pizza",
-        price: 40.0,
-        image: "lib/assets/images/tuna.png",
-        category: "Pizza",
-        isSelected: false,
-      ),
-      FoodModel(
-        name: "Cold Coffee",
-        price: 10.0,
-        image: "lib/assets/images/tuna.png",
-        category: "Beverage",
-        isSelected: false,
-      ),
-      FoodModel(
-        name: "Chocolate Lava Cake",
-        price: 20.0,
-        image: "lib/assets/images/tuna.png",
-        category: "Dessert",
-        isSelected: false,
-      ),
     ];
 
     state = LoadedFood();
