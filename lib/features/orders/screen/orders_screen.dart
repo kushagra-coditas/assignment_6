@@ -1,3 +1,4 @@
+import 'package:assignment_6/features/orders/screen/preparing_food_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:assignment_6/features/orders/widgets/orders_widgets.dart';
@@ -17,8 +18,7 @@ class OrdersScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back, color: Colors.deepPurple),
-
+        automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
       ),
       body: Padding(
@@ -151,7 +151,14 @@ class OrdersScreen extends ConsumerWidget {
                       ),
                       RoundedButton(
                         text: "Pay Now",
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PreparingFoodScreen(),
+                            ),
+                          );
+                        },
                         color: Colors.deepPurple,
                         textColor: Colors.white,
                       ),
